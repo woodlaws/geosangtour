@@ -95,7 +95,7 @@ GitHub 웹 업로드는 한 번에 올릴 수 있는 파일 크기와 개수에 
 | 항목 | 설정값 |
 |---|---|
 | Framework Preset | Vite |
-| Install Command | `pnpm install --frozen-lockfile` |
+| Install Command | `pnpm install` |
 | Build Command | `pnpm build` |
 | Output Directory | `dist` |
 | Development Command | `pnpm dev` |

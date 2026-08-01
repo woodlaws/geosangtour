@@ -15,6 +15,11 @@
     "build": "pnpm run typecheck && pnpm run lint && vite build --configLoader runner",
     "preview": "vite preview"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
   "devDependencies": {
     "eslint": "^9.39.2",
     "typescript": "^5.9.3",

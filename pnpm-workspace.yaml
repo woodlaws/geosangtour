@@ -1,0 +1,6 @@
+packages:
+  - '.'
+
+# pnpm 11에서도 esbuild의 설치 스크립트를 명시적으로 허용합니다.
+allowBuilds:
+  esbuild: true

@@ -17,7 +17,7 @@
 - [ ] GitHub 저장소 오른쪽의 **Import**를 눌렀다.
 - [ ] Framework Preset이 **Vite**인지 확인했다.
 - [ ] Root Directory가 `./`인지 확인했다.
-- [ ] Install Command가 `pnpm install --frozen-lockfile`인지 확인했다.
+- [ ] Install Command가 `pnpm install`인지 확인했다.
 - [ ] Build Command가 `pnpm build`인지 확인했다.
 - [ ] Output Directory가 `dist`인지 확인했다.
 - [ ] 필수 환경변수가 없음을 확인했다.
