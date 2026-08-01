@@ -1,0 +1,23 @@
+{
+  "name": "geosang-tour",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "거상투어 비즈니스 학습여행 공식 홈페이지",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=20.19 <25"
+  },
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "build": "pnpm run typecheck && pnpm run lint && vite build --configLoader runner",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6"
+  }
+}
