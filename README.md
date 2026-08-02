@@ -2,7 +2,7 @@
 
 ## 1. 프로젝트 소개
 
-거상투어의 서울·국내 지방·해외 비즈니스 학습여행을 소개하는 반응형 단일 페이지 홈페이지입니다. 공식 거상 심벌, 지역별 투어 이미지, 투어 진행 방식, 후기, 알림 신청 화면을 포함합니다.
+거상투어의 서울·국내 지방·해외 비즈니스 학습여행을 소개하는 반응형 다중 페이지 홈페이지입니다. 공식 거상 심벌, 지역별 투어 이미지, 투어 진행 방식, 현장 저널, 알림 신청 화면을 포함합니다.
 
 이 패키지는 기존 ChatGPT Sites 전용 파일을 제거하고 GitHub와 Vercel에서 바로 사용할 수 있는 표준 Vite 정적 사이트로 정리한 버전입니다. GitHub 저장소나 Vercel 프로젝트는 패키지에 포함되지 않습니다.
 
@@ -15,18 +15,34 @@
 - pnpm 11 잠금 파일
 - Node.js 22 권장 (`20.19` 이상도 지원)
 
-라우트는 `/` 한 개이며 API Route, 서버 기능, 데이터베이스는 사용하지 않습니다. 알림 신청 폼은 현재 화면에서 완료 문구만 표시하며 외부로 개인정보를 전송하지 않습니다.
+라우트는 `/`, `/tours/`, `/tours/seoul/`, `/tours/regional/`, `/tours/regional/city/?city=도시슬러그`, `/tours/korea/`, `/tours/global/`, `/program/`, `/journal/`, `/apply/`, `/reservation/`, `/about/`입니다. API Route, 서버 기능, 데이터베이스는 사용하지 않습니다. `/reservation/` 알림 신청 폼은 현재 화면에서 검증과 완료 문구만 제공하며 외부로 개인정보를 전송하지 않습니다.
 
 ## 3. 폴더 구조
 
 ```text
 .
 ├─ index.html                 # 페이지 콘텐츠와 SEO 메타 태그
+├─ tours/                     # 전체·서울·국내·해외 투어 페이지
+│  └─ regional/              # 전국 주요 도시 지역투어 허브
+│     └─ city/               # open 도시 공통 상세 템플릿
+├─ program/                   # 투어 진행 방식
+├─ journal/                   # 현장 저널
+├─ apply/                     # 투어 알림 신청
+├─ reservation/               # 관심 투어·도시 알림 신청 폼
+├─ about/                     # 거상투어 소개
 ├─ src/
 │  ├─ main.js                # 메뉴, 로고, 이미지 fallback, 폼 동작
+│  ├─ seoul-map.js           # 서울 자치구 지도 로딩과 선택 인터랙션
+│  ├─ data/seoul-districts.js # 8개 서울 지역의 비즈니스 학습여행 데이터
+│  ├─ regional-map.js        # 전국 도시 마커·카드 선택 인터랙션
+│  ├─ data/regional-cities.js # 8개 주요 도시 데이터와 상세 링크
+│  ├─ global-map.js          # 세계 도시 핀·권역 필터·정보 패널
+│  ├─ data/global-tour-cities.js # 19개 해외 후보 도시 데이터
+│  ├─ reservation.js         # 신청값 검증, 로딩, 완료 상태
 │  └─ styles.css             # 전체 디자인과 반응형 스타일
 ├─ public/
 │  ├─ assets/images/         # 공식 로고, OG 이미지, 모든 지역 이미지
+│  ├─ assets/maps/           # 서울 자치구 SVG와 라이선스 안내
 │  ├─ favicon.png
 │  └─ site.webmanifest
 ├─ seo/README.md             # canonical·sitemap 자동 생성 방식
@@ -102,7 +118,7 @@ GitHub 웹 업로드는 한 번에 올릴 수 있는 파일 크기와 개수에 
 | Root Directory | `./` |
 | Node.js Version | 22.x 권장 |
 
-`vercel.json`은 필요하지 않아 포함하지 않았습니다. 단일 페이지의 내부 이동은 `#seoul` 같은 앵커 방식이므로 새로고침 라우팅 오류도 없습니다.
+`vercel.json`은 필요하지 않아 포함하지 않았습니다. 각 경로에 실제 `index.html`이 생성되는 정적 다중 페이지 구조이므로 Vercel에서 개별 URL을 직접 열거나 새로고침할 수 있습니다.
 
 ## 8. 환경변수 등록 방법
 
@@ -149,7 +165,13 @@ GitHub 웹 업로드는 한 번에 올릴 수 있는 파일 크기와 개수에 
 
 ## 11. 콘텐츠와 이미지 수정 위치
 
-- 페이지 문구·지역명·링크: `index.html`
+- 홈 문구·지역명·링크: `index.html`
+- 전체 투어 분류: `tours/index.html`
+- 서울투어 상세: `tours/seoul/index.html`
+- 국내·해외 투어 안내: `tours/korea/index.html`, `tours/global/index.html`
+- 해외 후보 도시·상태·키워드: `src/data/global-tour-cities.js`
+- 투어 방식·현장 저널·알림 신청·소개: `program`, `journal`, `apply`, `about` 폴더의 `index.html`
+- 상세 알림 신청 폼: `reservation/index.html`, `src/reservation.js`
 - 색상·글자·카드·반응형 레이아웃: `src/styles.css`
 - 메뉴·폼·이미지 오류 처리: `src/main.js`
 - 서울 이미지: `public/assets/images/tours/seoul/`
@@ -158,7 +180,7 @@ GitHub 웹 업로드는 한 번에 올릴 수 있는 파일 크기와 개수에 
 - OG 공유 이미지: `public/assets/images/brand/geosang-tour-og.png`
 - 파비콘: `public/favicon.png`
 
-이미지를 교체할 때는 기존 파일명과 확장자를 유지하면 코드를 바꿀 필요가 없습니다. 다른 파일명을 쓰면 `index.html`의 해당 이미지 경로도 함께 수정합니다. 파일명은 영문 소문자와 하이픈을 권장합니다.
+이미지를 교체할 때는 기존 파일명과 확장자를 유지하면 코드를 바꿀 필요가 없습니다. 다른 파일명을 쓰면 해당 페이지 `index.html`의 이미지 경로도 함께 수정합니다. 파일명은 영문 소문자와 하이픈을 권장합니다.
 
 ## 12. 거상 공식 로고 교체 위치
 

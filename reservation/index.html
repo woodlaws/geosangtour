@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="관심 있는 거상투어 유형과 도시를 남기고 새로운 국내·해외 비즈니스 학습여행 일정을 가장 먼저 안내받으세요.">
+  <meta property="og:title" content="거상투어 알림 신청"><meta property="og:description" content="관심 있는 도시와 투어 유형을 남겨주시면 새로운 일정이 열릴 때 가장 먼저 안내드립니다."><meta property="og:type" content="website"><meta property="og:url" content="__SITE_URL__/reservation/"><meta property="og:image" content="__SITE_URL__/assets/images/brand/geosang-tour-og.png">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="거상투어 알림 신청"><meta name="twitter:description" content="관심 있는 도시와 투어 유형을 남겨주시면 새로운 일정이 열릴 때 가장 먼저 안내드립니다."><meta name="twitter:image" content="__SITE_URL__/assets/images/brand/geosang-tour-og.png"><link rel="canonical" href="__SITE_URL__/reservation/"><link rel="icon" href="/favicon.png"><meta name="theme-color" content="#f7f1e8">
+  <title>거상투어 알림 신청</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"거상투어 알림 신청","description":"관심 있는 투어와 도시의 새로운 일정 안내를 신청하는 페이지입니다.","url":"__SITE_URL__/reservation/","inLanguage":"ko-KR"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"__SITE_URL__/"},{"@type":"ListItem","position":2,"name":"알림 신청","item":"__SITE_URL__/reservation/"}]}]}</script>
+</head>
+<body>
+  <header class="site-header"><div class="shell nav-wrap"><a class="brand-logo" href="/" data-brand-logo data-brand-name="거상투어" data-variant="header" data-theme="light" data-priority="true" aria-label="거상투어 홈"></a><button class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span></button><nav class="nav-links" aria-label="주요 메뉴"><a class="mobile-menu-brand brand-logo" href="/" data-brand-logo data-brand-name="거상투어" data-variant="icon" data-theme="light" aria-label="거상투어 홈"></a><a href="/tours/">전체 투어</a><a href="/tours/seoul/">서울투어</a><a href="/tours/regional/">지역투어</a><a href="/tours/global/">해외투어</a><a href="/program/">투어 방식</a><a aria-current="page" href="/reservation/">알림 신청</a></nav></div></header>
+  <main>
+    <section class="reservation-page"><div class="shell"><nav class="breadcrumb" aria-label="현재 위치"><a href="/">홈</a><span>›</span><strong>알림 신청</strong></nav><div class="reservation-layout">
+      <aside class="reservation-intro reveal"><p class="kicker">TOUR NOTIFICATION</p><h1>거상투어<br><em>알림 신청</em></h1><p>관심 있는 도시와 투어 유형을 남겨주시면, 새로운 일정이 열릴 때 가장 먼저 안내드립니다.</p><div class="reservation-notes"><article><b>01</b><div><strong>확정 예약이 아닙니다</strong><span>일정이 열릴 때 안내받기 위한 관심 등록입니다.</span></div></article><article><b>02</b><div><strong>필요한 소식만 전합니다</strong><span>선택한 투어와 도시를 중심으로 안내합니다.</span></div></article><article><b>03</b><div><strong>현재 결제는 없습니다</strong><span>가격이나 결제 정보를 입력하지 않습니다.</span></div></article></div></aside>
+
+      <div class="reservation-form-card reveal"><div class="reservation-form-heading"><span>GEOSANG TOUR · INTEREST FORM</span><h2>관심 투어 정보 남기기</h2><p><b>*</b> 표시는 필수 항목입니다.</p></div>
+        <form class="reservation-form" data-reservation-form novalidate>
+          <div class="reservation-field-grid">
+            <div class="form-field"><label for="reservation-name">이름 <b>*</b></label><input id="reservation-name" name="name" type="text" autocomplete="name" maxlength="40" required aria-describedby="reservation-name-error"><small class="field-error" id="reservation-name-error"></small></div>
+            <div class="form-field"><label for="reservation-phone">연락처 <b>*</b></label><input id="reservation-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-1234-5678" maxlength="20" required aria-describedby="reservation-phone-error"><small class="field-error" id="reservation-phone-error"></small></div>
+          </div>
+          <div class="reservation-field-grid">
+            <div class="form-field"><label for="reservation-email">이메일 <b>*</b></label><input id="reservation-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" maxlength="100" required aria-describedby="reservation-email-error"><small class="field-error" id="reservation-email-error"></small></div>
+            <div class="form-field"><label for="reservation-organization">소속 / 직업</label><input id="reservation-organization" name="organization" type="text" autocomplete="organization-title" maxlength="80" placeholder="예: 브랜드 대표, 마케터"></div>
+          </div>
+          <div class="reservation-field-grid">
+            <div class="form-field"><label for="reservation-tour-type">관심 투어 유형 <b>*</b></label><select id="reservation-tour-type" name="tourType" required aria-describedby="reservation-tour-type-error"><option value="">선택해 주세요</option><option value="regional">국내 지역투어</option><option value="global">해외 비즈니스 투어</option><option value="seoul">서울 주요 상권 투어</option><option value="brand-space">브랜드·공간 탐방</option><option value="benchmarking">소상공인 벤치마킹 투어</option><option value="group-custom">기업/단체 맞춤 투어</option></select><small class="field-error" id="reservation-tour-type-error"></small></div>
+            <div class="form-field"><label for="reservation-city">관심 도시 <b>*</b></label><select id="reservation-city" name="city" required aria-describedby="reservation-city-error"><option value="">선택해 주세요</option><option value="seoul">서울</option><option value="busan">부산</option><option value="daegu">대구</option><option value="gwangju">광주</option><option value="daejeon">대전</option><option value="jeonju">전주</option><option value="suwon">수원</option><option value="jeju">제주</option><option value="tokyo">도쿄</option><option value="osaka">오사카</option><option value="fukuoka">후쿠오카</option><option value="shanghai">상하이</option><option value="shenzhen">선전</option><option value="hong-kong">홍콩</option><option value="singapore">싱가포르</option><option value="bangkok">방콕</option><option value="sydney">시드니</option><option value="other">기타</option></select><small class="field-error" id="reservation-city-error"></small></div>
+          </div>
+          <div class="reservation-field-grid">
+            <div class="form-field"><label for="reservation-timing">참여 희망 시기</label><select id="reservation-timing" name="preferredTiming"><option value="">아직 정하지 못했어요</option><option value="within-3-months">3개월 이내</option><option value="within-6-months">6개월 이내</option><option value="within-year">1년 이내</option><option value="schedule-dependent">일정에 따라 결정</option></select></div>
+            <div class="form-field"><label for="reservation-party-size">동행 인원</label><input id="reservation-party-size" name="partySize" type="number" inputmode="numeric" min="1" max="100" step="1" placeholder="본인 포함 인원"></div>
+          </div>
+          <div class="form-field"><label for="reservation-message">문의 사항</label><textarea id="reservation-message" name="message" rows="5" maxlength="1000" placeholder="관심 있는 현장이나 궁금한 점을 자유롭게 남겨주세요."></textarea><small class="field-help">최대 1,000자</small></div>
+          <div class="privacy-consent"><label><input name="privacyConsent" type="checkbox" required aria-describedby="reservation-privacy-error"><span><b>[필수]</b> 개인정보 수집 및 이용에 동의합니다.</span></label><button type="button" class="privacy-detail-toggle" aria-expanded="false" aria-controls="privacy-consent-details">내용 보기</button><small class="field-error" id="reservation-privacy-error"></small><div id="privacy-consent-details" class="privacy-consent-details" hidden><p><strong>수집 항목</strong> 이름, 연락처, 이메일, 소속·직업 및 신청자가 입력한 관심 정보</p><p><strong>이용 목적</strong> 거상투어 일정과 모집 소식 안내 및 문의 응대</p><p><strong>보유 기간</strong> 실제 수집 기능 연결 전 개인정보 처리방침에서 확정 예정</p><p>현재 데모에서는 입력 내용이 서버나 외부 서비스로 전송·저장되지 않습니다.</p></div></div>
+          <button class="button reservation-submit" type="submit" data-submit-button><span data-submit-label>거상투어 알림 신청하기 →</span><i aria-hidden="true"></i></button>
+        </form>
+        <div class="reservation-result" data-reservation-result role="status" tabindex="-1" hidden><span>✓</span><h2>알림 신청이 접수되었습니다.</h2><p>새로운 거상투어 일정이 열리면 가장 먼저 안내드리겠습니다.</p><button class="button button-secondary" type="button" data-reset-reservation>다른 관심 투어 남기기</button></div>
+        <p class="reservation-demo-note">현재는 화면 동작을 확인하는 데모이며 입력 정보는 저장되지 않습니다.</p>
+      </div>
+    </div></div></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-top"><div><a class="brand-logo footer-logo" href="/" data-brand-logo data-brand-name="거상투어" data-variant="footer" data-theme="dark" aria-label="거상투어 홈"></a><p>대표와 마케터를 위한<br>비즈니스 학습여행</p></div><nav><a href="/tours/">전체 투어</a><a href="/tours/seoul/">서울투어</a><a href="/tours/regional/">지역투어</a><a href="/tours/global/">해외투어</a><a href="/program/">투어 방식</a><a href="/about/">소개</a></nav></div><div class="shell footer-bottom"><span>© 2024 거상투어. All rights reserved.</span></div></footer>
+  <script type="module" src="/src/main.js"></script><script type="module" src="/src/reservation.js"></script>
+</body></html>

@@ -10,6 +10,10 @@ export default [
       globals: {
         document: 'readonly',
         window: 'readonly',
+        fetch: 'readonly',
+        DOMParser: 'readonly',
+        URLSearchParams: 'readonly',
+        console: 'readonly',
         IntersectionObserver: 'readonly',
         process: 'readonly'
       }

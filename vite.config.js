@@ -17,6 +17,24 @@ export default defineConfig(({ mode }) => {
   );
 
   return {
+    build: {
+      rollupOptions: {
+        input: {
+          home: resolve(process.cwd(), 'index.html'),
+          tours: resolve(process.cwd(), 'tours/index.html'),
+          toursSeoul: resolve(process.cwd(), 'tours/seoul/index.html'),
+          toursRegional: resolve(process.cwd(), 'tours/regional/index.html'),
+          toursRegionalCity: resolve(process.cwd(), 'tours/regional/city/index.html'),
+          toursKorea: resolve(process.cwd(), 'tours/korea/index.html'),
+          toursGlobal: resolve(process.cwd(), 'tours/global/index.html'),
+          program: resolve(process.cwd(), 'program/index.html'),
+          journal: resolve(process.cwd(), 'journal/index.html'),
+          apply: resolve(process.cwd(), 'apply/index.html'),
+          reservation: resolve(process.cwd(), 'reservation/index.html'),
+          about: resolve(process.cwd(), 'about/index.html')
+        }
+      }
+    },
     plugins: [
       {
         name: 'geosang-tour-seo',
@@ -30,8 +48,9 @@ export default defineConfig(({ mode }) => {
           const robots = siteUrl
             ? `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`
             : 'User-agent: *\nAllow: /\n';
+          const routes = ['/', '/tours/', '/tours/seoul/', '/tours/regional/', '/tours/korea/', '/tours/global/', '/program/', '/journal/', '/apply/', '/reservation/', '/about/'];
           const sitemap = siteUrl
-            ? `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${siteUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n`
+            ? `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route, index) => `  <url>\n    <loc>${siteUrl}${route}</loc>\n    <changefreq>${index === 0 ? 'weekly' : 'monthly'}</changefreq>\n    <priority>${index === 0 ? '1.0' : route === '/tours/seoul/' ? '0.9' : '0.7'}</priority>\n  </url>`).join('\n')}\n</urlset>\n`
             : `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n`;
 
           await Promise.all([
