@@ -1,56 +1,71 @@
-import { defaultDistrictId, seoulDistricts } from './data/seoul-districts.js';
+import { defaultAreaId, seoulTourAreas } from './data/seoul-districts.js';
 
 const explorer = /** @type {HTMLElement | null} */ (document.querySelector('[data-seoul-explorer]'));
 
 if (explorer) {
   const mapMount = /** @type {HTMLElement | null} */ (explorer.querySelector('[data-seoul-map]'));
   const panel = /** @type {HTMLElement | null} */ (explorer.querySelector('[data-district-panel]'));
-  const districtList = /** @type {HTMLElement | null} */ (explorer.querySelector('[data-district-list]'));
-  let activeDistrictId = defaultDistrictId;
+  const areaList = /** @type {HTMLElement | null} */ (explorer.querySelector('[data-district-list]'));
+  const areaCards = /** @type {HTMLElement | null} */ (document.querySelector('[data-area-cards]'));
+  let selectedArea = defaultAreaId;
 
-  /** @param {(typeof seoulDistricts)[string]} district */
-  const panelMarkup = (district) => `
-    <div class="district-panel__topline"><span>SELECTED DISTRICT</span><b>${district.name}</b></div>
-    <p class="district-panel__eyebrow">${district.label}</p>
-    <h2>${district.name}</h2>
-    <p class="district-panel__summary">${district.summary}</p>
-    <div class="district-keywords" aria-label="${district.name} 핵심 키워드">${district.keywords.map((keyword) => `<span>${keyword}</span>`).join('')}</div>
-    <dl class="district-details">
-      <div><dt>관찰 포인트</dt><dd>${district.observation}</dd></div>
-      <div><dt>대표 탐방 포인트</dt><dd><ul>${district.points.map((point) => `<li>${point}</li>`).join('')}</ul></dd></div>
-      <div><dt>얻을 수 있는 인사이트</dt><dd>${district.insight}</dd></div>
-    </dl>
-    <a class="button district-panel__action" href="/reservation/?tour=seoul&amp;district=${encodeURIComponent(district.name)}">${district.action} <b>→</b></a>`;
+  /** @param {(typeof seoulTourAreas)[string]} area */
+  const panelMarkup = (area) => `
+    <div class="district-panel__topline"><span>SELECTED AREA</span><b>${area.name}</b></div>
+    <p class="district-panel__eyebrow">${area.keyword}</p>
+    <h2>${area.name}</h2>
+    <p class="district-panel__summary">${area.description}</p>
+    <div class="district-details">
+      <div><h3>관찰 포인트</h3><ul>${area.points.map((point) => `<li>${point}</li>`).join('')}</ul></div>
+      <div class="district-question"><h3>추천 질문</h3><p>${area.question}</p></div>
+    </div>
+    <a class="button district-panel__action" href="#seoul-courses">${area.cta} <b>↓</b></a>`;
 
-  /**
-   * @param {string} districtId
-   * @param {boolean} [announce]
-   */
-  const setActiveDistrict = (districtId, announce = false) => {
-    const district = seoulDistricts[districtId];
-    if (!district || !panel) return;
-    activeDistrictId = districtId;
-    panel.innerHTML = panelMarkup(district);
-    panel.style.setProperty('--district-accent', district.accent);
+  /** @param {string} areaId @param {{scroll?: boolean}} [options] */
+  const setSelectedArea = (areaId, options = {}) => {
+    const area = seoulTourAreas[areaId];
+    if (!area || !panel) return;
+    selectedArea = areaId;
+    panel.innerHTML = panelMarkup(area);
 
-    explorer.querySelectorAll('[data-district-id]').forEach((element) => {
-      const isActive = element.getAttribute('data-district-id') === activeDistrictId;
+    explorer.querySelectorAll('[data-area-id]').forEach((element) => {
+      const isActive = element.getAttribute('data-area-id') === selectedArea;
       element.classList.toggle('is-active', isActive);
       element.setAttribute('aria-pressed', String(isActive));
     });
+    explorer.querySelectorAll('[data-area-shape]').forEach((element) => {
+      element.classList.toggle('is-active', element.getAttribute('data-area-shape') === selectedArea);
+    });
+    document.querySelectorAll('[data-area-card]').forEach((element) => {
+      element.classList.toggle('is-active', element.getAttribute('data-area-card') === selectedArea);
+    });
 
-    if (announce) panel.focus({ preventScroll: true });
+    if (options.scroll && mapMount) {
+      mapMount.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
-  if (districtList) {
-    districtList.innerHTML = Object.entries(seoulDistricts).map(([id, district]) =>
-      `<button type="button" data-district-id="${id}" style="--district-accent:${district.accent}" aria-pressed="false">${district.name}</button>`
+  if (areaList) {
+    areaList.innerHTML = Object.entries(seoulTourAreas).map(([id, area]) =>
+      `<button type="button" data-area-id="${id}" aria-label="${area.name} 정보 보기" aria-pressed="false">${area.name}</button>`
     ).join('');
-    districtList.addEventListener('click', (event) => {
+    areaList.addEventListener('click', (event) => {
       const target = /** @type {Element | null} */ (event.target);
-      const button = target?.closest('[data-district-id]');
-      const districtId = button?.getAttribute('data-district-id');
-      if (districtId) setActiveDistrict(districtId, true);
+      const areaId = target?.closest('[data-area-id]')?.getAttribute('data-area-id');
+      if (areaId) setSelectedArea(areaId);
+    });
+  }
+
+  if (areaCards) {
+    areaCards.innerHTML = Object.entries(seoulTourAreas).map(([id, area], index) => `
+      <article class="seoul-area-card" data-area-card="${id}">
+        <div class="seoul-area-card__image"><img src="${area.image}" alt="${area.imageAlt}" width="1600" height="1200" loading="${index === 0 ? 'eager' : 'lazy'}"><span>SEOUL ${String(index + 1).padStart(2, '0')}</span></div>
+        <div class="seoul-area-card__body"><h3>${area.name}</h3><strong>${area.keyword}</strong><p>${area.shortDescription}</p><ul>${area.points.map((point) => `<li>${point}</li>`).join('')}</ul><button type="button" data-view-area="${id}">지도에서 보기 ↑</button></div>
+      </article>`).join('');
+    areaCards.addEventListener('click', (event) => {
+      const target = /** @type {Element | null} */ (event.target);
+      const areaId = target?.closest('[data-view-area]')?.getAttribute('data-view-area');
+      if (areaId) setSelectedArea(areaId, { scroll: true });
     });
   }
 
@@ -60,39 +75,46 @@ if (explorer) {
       const response = await fetch('/assets/maps/seoul-districts.svg');
       if (!response.ok) throw new Error(`Map request failed: ${response.status}`);
       const markup = await response.text();
-      const documentFragment = new DOMParser().parseFromString(markup, 'image/svg+xml');
-      const svg = documentFragment.querySelector('svg');
+      const fragment = new DOMParser().parseFromString(markup, 'image/svg+xml');
+      const svg = fragment.querySelector('svg');
       if (!svg) throw new Error('SVG element missing');
 
       svg.removeAttribute('width');
       svg.removeAttribute('height');
       svg.classList.add('seoul-district-map');
-      svg.setAttribute('role', 'group');
-      svg.setAttribute('aria-label', '서울 자치구 선택 지도');
-
+      svg.setAttribute('role', 'img');
+      svg.setAttribute('aria-label', '한강과 서울 자치구 윤곽을 표시한 서울 지도');
       svg.querySelectorAll('path').forEach((path) => {
         path.classList.add('seoul-district');
-        const district = seoulDistricts[path.id];
-        if (!district) return;
-        path.classList.add('seoul-district--interactive');
-        path.setAttribute('data-district-id', path.id);
-        path.setAttribute('tabindex', '0');
-        path.setAttribute('role', 'button');
-        path.setAttribute('aria-label', `${district.name} 비즈니스 학습여행 정보 보기`);
-        path.setAttribute('aria-pressed', 'false');
-        path.style.setProperty('--district-accent', district.accent);
-        path.addEventListener('click', () => setActiveDistrict(path.id));
-        path.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            setActiveDistrict(path.id);
-          }
-        });
+        const areaEntry = Object.entries(seoulTourAreas).find(([, area]) => area.districtPathId === path.id);
+        if (areaEntry) {
+          path.classList.add('seoul-district--focus');
+          path.setAttribute('data-area-shape', areaEntry[0]);
+        }
       });
 
-      mapMount.replaceChildren(document.adoptNode(svg));
+      const pinLayer = document.createElement('div');
+      pinLayer.className = 'seoul-pin-layer';
+      pinLayer.setAttribute('aria-label', '서울투어 지역 핀');
+      pinLayer.innerHTML = Object.entries(seoulTourAreas).map(([id, area]) => `
+        <button type="button" class="seoul-area-pin" data-area-id="${id}" style="--pin-x:${area.mapPosition.x}%;--pin-y:${area.mapPosition.y}%" aria-label="${area.name} 투어 정보 보기" aria-pressed="false"><i aria-hidden="true"></i><span>${area.name}</span></button>`).join('');
+      pinLayer.addEventListener('click', (event) => {
+        const target = /** @type {Element | null} */ (event.target);
+        const areaId = target?.closest('[data-area-id]')?.getAttribute('data-area-id');
+        if (areaId) setSelectedArea(areaId);
+      });
+      pinLayer.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        const target = /** @type {Element | null} */ (event.target);
+        const areaId = target?.closest('[data-area-id]')?.getAttribute('data-area-id');
+        if (!areaId) return;
+        event.preventDefault();
+        setSelectedArea(areaId);
+      });
+
+      mapMount.replaceChildren(document.adoptNode(svg), pinLayer);
       mapMount.setAttribute('aria-busy', 'false');
-      setActiveDistrict(activeDistrictId);
+      setSelectedArea(selectedArea);
     } catch (error) {
       mapMount.innerHTML = '<p class="map-error">지도를 불러오지 못했습니다. 위의 지역 버튼으로 정보를 선택해 주세요.</p>';
       mapMount.setAttribute('aria-busy', 'false');
@@ -100,6 +122,6 @@ if (explorer) {
     }
   };
 
-  setActiveDistrict(activeDistrictId);
+  setSelectedArea(selectedArea);
   activateMap();
 }
