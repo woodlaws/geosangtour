@@ -50,7 +50,9 @@ const createCity = (city) => ({
   recommendedFor: ['대표·창업가', '마케터', '1인기업', '브랜드 운영자'],
   duration: '일정 미정',
   routeSummary: `${city.city} 주요 상권 · 브랜드 공간 · 고객 경험 관찰`,
-  detailUrl: ''
+  detailUrl: ['tokyo', 'osaka', 'fukuoka', 'shenzhen', 'singapore'].includes(city.id)
+    ? `/tours/global/${city.id}/`
+    : ''
 });
 
 /** @type {GlobalTourCity[]} */

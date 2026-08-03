@@ -27,10 +27,20 @@ export default defineConfig(({ mode }) => {
           toursRegionalCity: resolve(process.cwd(), 'tours/regional/city/index.html'),
           toursKorea: resolve(process.cwd(), 'tours/korea/index.html'),
           toursGlobal: resolve(process.cwd(), 'tours/global/index.html'),
+          toursGlobalTokyo: resolve(process.cwd(), 'tours/global/tokyo/index.html'),
+          toursGlobalOsaka: resolve(process.cwd(), 'tours/global/osaka/index.html'),
+          toursGlobalFukuoka: resolve(process.cwd(), 'tours/global/fukuoka/index.html'),
+          toursGlobalShenzhen: resolve(process.cwd(), 'tours/global/shenzhen/index.html'),
+          toursGlobalSingapore: resolve(process.cwd(), 'tours/global/singapore/index.html'),
+          domestic: resolve(process.cwd(), 'domestic/index.html'),
+          global: resolve(process.cwd(), 'global/index.html'),
+          method: resolve(process.cwd(), 'method/index.html'),
           program: resolve(process.cwd(), 'program/index.html'),
           journal: resolve(process.cwd(), 'journal/index.html'),
           apply: resolve(process.cwd(), 'apply/index.html'),
           reservation: resolve(process.cwd(), 'reservation/index.html'),
+          contact: resolve(process.cwd(), 'contact/index.html'),
+          privacy: resolve(process.cwd(), 'privacy/index.html'),
           about: resolve(process.cwd(), 'about/index.html')
         }
       }
@@ -48,7 +58,7 @@ export default defineConfig(({ mode }) => {
           const robots = siteUrl
             ? `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`
             : 'User-agent: *\nAllow: /\n';
-          const routes = ['/', '/tours/', '/tours/seoul/', '/tours/regional/', '/tours/korea/', '/tours/global/', '/program/', '/journal/', '/apply/', '/reservation/', '/about/'];
+          const routes = ['/', '/domestic/', '/tours/seoul/', '/tours/regional/', '/global/', '/tours/global/', '/tours/global/tokyo/', '/tours/global/osaka/', '/tours/global/fukuoka/', '/tours/global/shenzhen/', '/tours/global/singapore/', '/method/', '/reservation/', '/about/', '/contact/', '/privacy/'];
           const sitemap = siteUrl
             ? `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route, index) => `  <url>\n    <loc>${siteUrl}${route}</loc>\n    <changefreq>${index === 0 ? 'weekly' : 'monthly'}</changefreq>\n    <priority>${index === 0 ? '1.0' : route === '/tours/seoul/' ? '0.9' : '0.7'}</priority>\n  </url>`).join('\n')}\n</urlset>\n`
             : `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n`;

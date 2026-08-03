@@ -15,7 +15,7 @@
 - pnpm 11 잠금 파일
 - Node.js 22 권장 (`20.19` 이상도 지원)
 
-라우트는 `/`, `/tours/`, `/tours/seoul/`, `/tours/regional/`, `/tours/regional/city/?city=도시슬러그`, `/tours/korea/`, `/tours/global/`, `/program/`, `/journal/`, `/apply/`, `/reservation/`, `/about/`입니다. API Route, 서버 기능, 데이터베이스는 사용하지 않습니다. `/reservation/` 알림 신청 폼은 현재 화면에서 검증과 완료 문구만 제공하며 외부로 개인정보를 전송하지 않습니다.
+주요 공개 라우트는 `/`, `/domestic/`, `/tours/seoul/`, `/tours/regional/`, `/global/`, `/tours/global/`, `/tours/global/tokyo/`, `/tours/global/osaka/`, `/tours/global/fukuoka/`, `/tours/global/shenzhen/`, `/tours/global/singapore/`, `/method/`, `/reservation/`, `/about/`, `/contact/`, `/privacy/`입니다. `/domestic/`, `/global/`, `/method/`는 각각 기존 지역투어, 해외투어 허브, 투어 방식 페이지로 이동하는 공식 별칭입니다. API Route, 서버 기능, 데이터베이스는 사용하지 않습니다. `/reservation/` 알림 신청 폼은 현재 화면에서 검증과 완료 문구만 제공하며 외부로 개인정보를 전송하지 않습니다.
 
 ## 3. 폴더 구조
 
@@ -29,6 +29,9 @@
 ├─ journal/                   # 현장 저널
 ├─ apply/                     # 투어 알림 신청
 ├─ reservation/               # 관심 투어·도시 알림 신청 폼
+├─ contact/                   # 문의 안내
+├─ privacy/                   # 개인정보처리방침 초안
+├─ domestic/, global/, method/ # 주요 페이지 공식 별칭
 ├─ about/                     # 거상투어 소개
 ├─ src/
 │  ├─ main.js                # 메뉴, 로고, 이미지 fallback, 폼 동작

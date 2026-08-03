@@ -18,7 +18,7 @@ if (root) {
   /** @param {(typeof globalTourCities)[number]} city @param {boolean} [compact] */
   const renderAction = (city, compact = false) => {
     if (city.status === 'open' && city.detailUrl) return `<a class="button${compact ? ' button-small' : ''}" href="${city.detailUrl}">자세히 보기 →</a>`;
-    if (city.status === 'coming-soon') return `<a class="button${compact ? ' button-small' : ''}" href="${applyUrl(city)}">알림 신청하기 →</a>`;
+    if (city.status === 'coming-soon') return `${city.detailUrl ? `<a class="button button-secondary${compact ? ' button-small' : ''}" href="${city.detailUrl}">도시 정보 보기</a>` : ''}<a class="button${compact ? ' button-small' : ''}" href="${applyUrl(city)}">알림 신청하기 →</a>`;
     return `<span class="global-planned-note" aria-label="${escapeHtml(city.city)} 투어는 확장 후보입니다">확장 후보</span>`;
   };
 
