@@ -58,7 +58,7 @@ export default defineConfig(({ mode }) => {
           const robots = siteUrl
             ? `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`
             : 'User-agent: *\nAllow: /\n';
-          const routes = ['/', '/domestic/', '/tours/seoul/', '/tours/regional/', '/global/', '/tours/global/', '/tours/global/tokyo/', '/tours/global/osaka/', '/tours/global/fukuoka/', '/tours/global/shenzhen/', '/tours/global/singapore/', '/method/', '/reservation/', '/about/', '/contact/', '/privacy/'];
+          const routes = ['/'];
           const sitemap = siteUrl
             ? `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route, index) => `  <url>\n    <loc>${siteUrl}${route}</loc>\n    <changefreq>${index === 0 ? 'weekly' : 'monthly'}</changefreq>\n    <priority>${index === 0 ? '1.0' : route === '/tours/seoul/' ? '0.9' : '0.7'}</priority>\n  </url>`).join('\n')}\n</urlset>\n`
             : `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n`;
