@@ -1,0 +1,17 @@
+{
+  "name": "거상투어",
+  "short_name": "거상투어",
+  "lang": "ko",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f1e8",
+  "theme_color": "#f7f1e8",
+  "icons": [
+    {
+      "src": "/assets/images/brand/geosang-brand-symbol.png",
+      "sizes": "1154x1190",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
