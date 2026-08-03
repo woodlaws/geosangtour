@@ -57,12 +57,14 @@
       </div>
     </section>
 
-    <section class="map-section map-section--stacked" id="seoul-tour">
+    <section class="seoul-tour-group" id="seoul-tour">
+    <div class="map-section map-section--stacked">
       <div class="shell">
         <div class="seoul-map-heading reveal">
           <div><p class="kicker lime">SEOUL BUSINESS MAP</p><h2>서울 주요 투어</h2></div>
           <p>성수, 홍대, 종로, 코엑스를 중심으로 서울의 비즈니스 현장을 탐방합니다.</p>
         </div>
+        <div class="seoul-first-layout">
         <div class="map-visual seoul-map-wide reveal" aria-label="성수, 홍대, 종로, 코엑스를 잇는 서울 비즈니스 학습여행 동선">
           <div class="map-streets"></div><div class="river"></div>
           <div class="route r1"></div><div class="route r2"></div><div class="route r3"></div>
@@ -79,22 +81,13 @@
             <article><b>04</b><h3>코엑스</h3><p>전시, 브랜드, 복합문화공간이 만나는 비즈니스 쇼케이스</p></article>
           </div>
           <div class="metrics seoul-map-metrics reveal"><div><small>관찰 관점</small><strong>상권</strong></div><div><small>브랜드 경험</small><strong>공간</strong></div><div><small>고객 이해</small><strong>동선</strong></div><div><small>최종 목표</small><strong>적용</strong></div></div>
-          <div class="seoul-map-cta reveal"><a class="button" href="/reservation/?tour=seoul">다음 서울투어 일정 받기 →</a><a class="text-link light" href="/tours/seoul/">서울투어 자세히 보기</a></div>
+          <div class="seoul-map-cta reveal"><a class="button" href="#cta">서울투어 알림 신청하기 →</a><a class="text-link light" href="/tours/seoul/">서울투어 자세히 보기</a></div>
+        </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section home-categories">
-      <div class="shell"><div class="center-title"><p class="kicker">THREE BUSINESS JOURNEYS</p><h2>거상투어는 세 가지 여정으로 확장됩니다</h2></div>
-        <div class="category-grid">
-          <a class="category-card category-seoul reveal" href="/tours/seoul/"><div class="category-image"><img src="/assets/images/tours/seoul/seongsu-business-tour.webp" alt="성수의 브랜드 공간" width="1600" height="1200" loading="lazy"><span>01 · SEOUL</span></div><div><small>당일형 비즈니스 학습여행</small><h3>서울투어</h3><p>서울 주요 상권과 브랜드 공간을 탐방합니다.</p><b>서울투어 보기 →</b></div></a>
-          <a class="category-card reveal" href="/tours/regional/"><div class="category-image"><img src="/assets/images/tours/korea/busan-business-tour.webp" alt="부산의 해안 도시 풍경" width="1600" height="1200" loading="lazy"><span>02 · KOREA</span></div><div><small>전국 비즈니스 학습여행</small><h3>지역투어</h3><p>전국 주요 도시의 상권과 로컬 브랜드를 탐방합니다.</p><b>지역투어 보기 →</b></div></a>
-          <a class="category-card reveal" href="/tours/global/"><div class="category-image"><img src="/assets/images/tours/overseas/tokyo-business-tour.webp" alt="도쿄의 도심 상권" width="1400" height="908" loading="lazy"><span>03 · GLOBAL</span></div><div><small>글로벌 인사이트 투어</small><h3>해외투어</h3><p>가까운 해외 도시의 비즈니스 현장을 탐방합니다.</p><b>해외투어 보기 →</b></div></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section tours">
+    <div class="section tours seoul-city-section">
       <div class="shell"><div class="section-title"><div><p class="kicker">URBAN FIELD TRIP</p><h2>서울 주요 투어</h2></div><a class="text-link" href="/tours/seoul/">서울투어 보기 →</a></div>
         <div class="tour-grid">
           <article class="tour-card reveal"><div class="card-image"><img src="/assets/images/tours/seoul/seongsu-business-tour.webp" alt="성수의 브랜드 카페 공간" width="1600" height="1200" loading="lazy" decoding="async"><span>SEOUL 01</span></div><div class="card-body"><div class="card-meta">당일형 비즈니스 학습여행</div><h3>성수</h3><p>브랜드와 공간이 만나는<br>성수의 비즈니스 생태계</p><b>↗</b></div></article>
@@ -103,6 +96,7 @@
           <article class="tour-card reveal"><div class="card-image"><img src="/assets/images/tours/seoul/coex-business-tour.webp" alt="코엑스 별마당도서관" width="1600" height="1067" loading="lazy" decoding="async"><span>SEOUL 04</span></div><div class="card-body"><div class="card-meta">당일형 비즈니스 학습여행</div><h3>코엑스</h3><p>비즈니스와 문화가 만나는<br>브랜드 쇼케이스 공간</p><b>↗</b></div></article>
         </div>
       </div>
+    </div>
     </section>
 
     <section class="section tours warm nationwide-series" id="domestic-tour">
@@ -129,27 +123,50 @@
             <p>주요 탐방 지역은 오렌지 핀으로 표시했습니다.</p>
           </div>
           <div class="nationwide-content reveal">
-            <div class="nationwide-intro"><p class="kicker">REGIONAL TOUR</p><h3>지역을 보면,<br>사업의 기회가 보입니다</h3><p>부산, 경주, 여수, 목포 등 지역의 상권과 로컬 비즈니스 현장을 탐방하며 내 사업에 적용할 수 있는 인사이트를 발견합니다.</p></div>
-            <div class="nationwide-observation" aria-label="핵심 관찰 포인트"><span>지역 상권 구조</span><span>로컬 브랜드 사례</span><span>관광객 동선</span><span>체류형 소비</span><span>공간 경험</span><span>스토리텔링</span></div>
+            <div class="nationwide-intro"><p class="kicker">DOMESTIC TOUR</p><h3>지역을 보면,<br>사업의 기회가 보입니다</h3><p>부산, 경주, 여수, 목포 등 지역의 상권과 로컬 비즈니스 현장을 탐방하며 내 사업에 적용할 수 있는 인사이트를 발견합니다.</p></div>
+            <div class="nationwide-observation" aria-label="핵심 관찰 포인트"><span>지역 상권 구조</span><span>로컬 브랜드 사례</span><span>관광객 동선</span><span>체류형 소비</span><span>공간 경험</span><span>지역 콘텐츠 상품화</span></div>
             <div class="nationwide-city-grid">
               <article><small>BUSAN · 01</small><h4>부산</h4><strong>해양도시 부산의 상권과 관광 비즈니스</strong><p>해안 도시의 상권, 로컬 브랜드, 관광 동선, 체류형 소비 구조를 관찰합니다.</p></article>
               <article><small>GYEONGJU · 02</small><h4>경주</h4><strong>역사와 문화가 만드는 관광 브랜드</strong><p>문화유산과 도시 브랜딩이 관광 비즈니스로 연결되는 방식을 살펴봅니다.</p></article>
               <article><small>YEOSU · 03</small><h4>여수</h4><strong>바다와 여정이 빚어내는 관광 경제</strong><p>숙박, 먹거리, 야경 콘텐츠가 지역 소비를 만드는 흐름을 관찰합니다.</p></article>
               <article><small>MOKPO · 04</small><h4>목포</h4><strong>근대문화와 항구도시의 로컬 비즈니스</strong><p>역사, 골목, 음식, 로컬 스토리가 비즈니스 자산이 되는 방식을 탐방합니다.</p></article>
             </div>
-            <div class="nationwide-actions"><a class="button" href="/reservation/?tour=regional">전국투어 일정 받아보기 →</a><a class="text-link" href="/tours/regional/">전국 지역투어 자세히 보기</a></div>
+            <div class="nationwide-actions"><a class="button" href="#cta">국내투어 알림 신청하기 →</a><a class="text-link" href="/tours/regional/">전국 지역투어 자세히 보기</a></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section global" id="global-tour">
-      <div class="shell"><div class="section-title light-title"><div><p class="kicker lime">GLOBAL EXPANSION</p><h2>해외 확장 투어</h2></div><a class="text-link light" href="/tours/global/">해외투어 보기 →</a></div>
+    <section class="section global home-global-tour" id="global-tour">
+      <div class="shell"><div class="section-title light-title"><div><p class="kicker lime">GLOBAL BUSINESS JOURNEY</p><h2>해외투어</h2></div><p class="home-global-note">도쿄, 선전, 시드니, 홍콩 등 해외 주요 도시의 비즈니스 현장을 탐방하며 글로벌 상권, 브랜드, 리테일, 테크 생태계를 관찰합니다.</p></div>
+        <div class="home-global-first-layout">
+        <div class="home-global-map-card reveal">
+          <div class="global-map-canvas home-global-map-canvas" role="img" aria-label="도쿄, 선전, 홍콩, 시드니를 표시한 해외 비즈니스 학습여행 세계지도">
+            <div class="world-shape world-shape--americas"></div><div class="world-shape world-shape--europe"></div><div class="world-shape world-shape--africa"></div><div class="world-shape world-shape--asia"></div><div class="world-shape world-shape--oceania"></div>
+            <span class="home-global-pin" style="--global-x:84%;--global-y:37%"><i></i><b>도쿄</b></span>
+            <span class="home-global-pin" style="--global-x:77%;--global-y:49%"><i></i><b>선전</b></span>
+            <span class="home-global-pin" style="--global-x:76%;--global-y:54%"><i></i><b>홍콩</b></span>
+            <span class="home-global-pin" style="--global-x:89%;--global-y:77%"><i></i><b>시드니</b></span>
+          </div>
+          <div class="home-global-map-meta"><div><small>GLOBAL INSIGHT MAP</small><strong>세계의 상권과 브랜드 현장을 연결합니다</strong></div><div class="home-global-candidate-list" aria-label="해외투어 확장 후보"><span>오사카</span><span>후쿠오카</span><span>상하이</span><span>타이베이</span><span>싱가포르</span><span>방콕</span></div></div>
+        </div>
+        <div class="home-global-summary reveal">
+          <div class="home-global-summary__intro"><p class="kicker lime">GLOBAL TOUR</p><h3>세계의 비즈니스 현장을<br>배우는 여정</h3><p>아시아와 오세아니아의 주요 도시를 직접 탐방하며 리테일, 브랜드, 제조, 테크, 도시 경험을 내 사업의 언어로 정리합니다.</p></div>
+          <div class="home-global-observation" aria-label="해외투어 핵심 관찰 포인트"><span>글로벌 상권</span><span>리테일 전략</span><span>브랜드 경험</span><span>제조·테크 생태계</span><span>도시 브랜딩</span><span>현지 고객 흐름</span></div>
+          <div class="home-global-city-grid">
+            <article><small>TOKYO · 01</small><h4>도쿄</h4><p>리테일과 브랜드 공간 경험</p></article>
+            <article><small>SHENZHEN · 02</small><h4>선전</h4><p>제조와 테크 생태계</p></article>
+            <article><small>HONG KONG · 03</small><h4>홍콩</h4><p>고밀도 글로벌 상권</p></article>
+            <article><small>SYDNEY · 04</small><h4>시드니</h4><p>라이프스타일과 도시 브랜딩</p></article>
+          </div>
+          <div class="home-global-summary__actions"><a class="button" href="#cta">해외투어 알림 신청하기 →</a><a class="text-link light" href="/tours/global/">해외투어 전체 도시 보기</a></div>
+        </div>
+        </div>
         <div class="global-grid">
-          <article class="global-card reveal"><img src="/assets/images/tours/overseas/tokyo-business-tour.webp" alt="도쿄의 네온 상업 거리" width="1400" height="908" loading="lazy" decoding="async"><span>JAPAN</span><div><small>GLOBAL 01</small><h3>도쿄</h3><p>도시 브랜딩과<br>디테일 실험 탐구</p></div></article>
-          <article class="global-card reveal"><img src="/assets/images/tours/overseas/shenzhen-business-tour.webp" alt="중국 선전의 야간 스카이라인" width="1400" height="933" loading="lazy" decoding="async"><span>CHINA</span><div><small>GLOBAL 02</small><h3>중국 선전</h3><p>테크와 제조업 혁신의<br>비즈니스 현장</p></div></article>
-          <article class="global-card reveal"><img src="/assets/images/tours/overseas/sydney-business-tour.webp" alt="시드니 오페라하우스와 항구" width="1400" height="933" loading="lazy" decoding="async"><span>AUSTRALIA</span><div><small>GLOBAL 03</small><h3>시드니</h3><p>글로벌 도시의<br>창업과 라이프스타일</p></div></article>
-          <article class="global-card reveal"><img src="/assets/images/tours/overseas/hong-kong-business-tour.webp" alt="홍콩 빅토리아 하버의 야경" width="1400" height="875" loading="lazy" decoding="async"><span>HONG KONG</span><div><small>GLOBAL 04</small><h3>홍콩</h3><p>아시아 금융·상업 허브의<br>비즈니스 인사이트</p></div></article>
+          <article class="global-card reveal"><img src="/assets/images/tours/overseas/tokyo-business-tour.webp" alt="도쿄의 네온 상업 거리" width="1400" height="908" loading="lazy" decoding="async"><span>JAPAN</span><div><small>GLOBAL 01</small><h3>도쿄</h3><p>리테일, 브랜딩,<br>공간 경험</p></div></article>
+          <article class="global-card reveal"><img src="/assets/images/tours/overseas/shenzhen-business-tour.webp" alt="중국 선전의 야간 스카이라인" width="1400" height="933" loading="lazy" decoding="async"><span>CHINA</span><div><small>GLOBAL 02</small><h3>선전</h3><p>제조, 테크,<br>플랫폼 생태계</p></div></article>
+          <article class="global-card reveal"><img src="/assets/images/tours/overseas/sydney-business-tour.webp" alt="시드니 오페라하우스와 항구" width="1400" height="933" loading="lazy" decoding="async"><span>AUSTRALIA</span><div><small>GLOBAL 03</small><h3>시드니</h3><p>라이프스타일 비즈니스와<br>도시 브랜딩</p></div></article>
+          <article class="global-card reveal"><img src="/assets/images/tours/overseas/hong-kong-business-tour.webp" alt="홍콩 빅토리아 하버의 야경" width="1400" height="875" loading="lazy" decoding="async"><span>HONG KONG</span><div><small>GLOBAL 04</small><h3>홍콩</h3><p>글로벌 비즈니스와<br>도시 상권</p></div></article>
         </div>
       </div>
     </section>
@@ -174,6 +191,16 @@
           <article class="c2"><i>02</i><h3>질문</h3><p>왜 되는지, 왜 안 되는지<br>질문합니다.</p></article>
           <article class="c3"><i>03</i><h3>기록</h3><p>핵심을 정리하고<br>나만의 언어로 남깁니다.</p></article>
           <article class="c4"><i>04</i><h3>적용</h3><p>사업에 접목할<br>실행 아이디어를 정리합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-categories">
+      <div class="shell"><div class="center-title"><p class="kicker">THREE BUSINESS JOURNEYS</p><h2>거상투어는 세 가지 여정으로 확장됩니다</h2></div>
+        <div class="category-grid">
+          <a class="category-card category-seoul reveal" href="/tours/seoul/"><div class="category-image"><img src="/assets/images/tours/seoul/seongsu-business-tour.webp" alt="성수의 브랜드 공간" width="1600" height="1200" loading="lazy"><span>01 · SEOUL</span></div><div><small>당일형 비즈니스 학습여행</small><h3>서울투어</h3><p>서울 주요 상권과 브랜드 공간을 탐방합니다.</p><b>서울투어 보기 →</b></div></a>
+          <a class="category-card reveal" href="/tours/regional/"><div class="category-image"><img src="/assets/images/tours/korea/busan-business-tour.webp" alt="부산의 해안 도시 풍경" width="1600" height="1200" loading="lazy"><span>02 · KOREA</span></div><div><small>전국 비즈니스 학습여행</small><h3>국내투어</h3><p>전국 주요 도시의 상권과 로컬 브랜드를 탐방합니다.</p><b>국내투어 보기 →</b></div></a>
+          <a class="category-card reveal" href="/tours/global/"><div class="category-image"><img src="/assets/images/tours/overseas/tokyo-business-tour.webp" alt="도쿄의 도심 상권" width="1400" height="908" loading="lazy"><span>03 · GLOBAL</span></div><div><small>글로벌 인사이트 투어</small><h3>해외투어</h3><p>가까운 해외 도시의 비즈니스 현장을 탐방합니다.</p><b>해외투어 보기 →</b></div></a>
         </div>
       </div>
     </section>
